@@ -13,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyShop.Repository", "MyShop
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyShop.Infastructure", "MyShop.Infastructure\MyShop.Infastructure.csproj", "{AC073ED7-271C-4D7B-9B96-99E4C4EE5447}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MyShop.FE", "MyShop.FE", "{4619BBDF-A0CD-4E83-8B5F-167BD5EE0A29}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

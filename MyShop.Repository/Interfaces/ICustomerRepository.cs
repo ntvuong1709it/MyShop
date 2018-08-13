@@ -2,7 +2,7 @@
 
 namespace MyShop.Repository.Interfaces
 {
-    public interface IAccountRepository : IGenericRepository<Customer>
+    public interface ICustomerRepository : IGenericRepository<Customer>
     {
         
     }

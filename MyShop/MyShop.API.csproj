@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Blockchain\Blockchain.csproj" />
     <ProjectReference Include="..\MyShop.Data\MyShop.Data.csproj" />
     <ProjectReference Include="..\MyShop.Infastructure\MyShop.Infastructure.csproj" />
     <ProjectReference Include="..\MyShop.Service\MyShop.Service.csproj" />

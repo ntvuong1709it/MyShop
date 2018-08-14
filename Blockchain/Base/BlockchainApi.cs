@@ -5,7 +5,7 @@ namespace Blockchain
 {
     public class BlockchainApi
     {
-        private const string BaseUrl = "localhost:3000";
+        private const string BaseUrl = "http://localhost:3000";
 
         public static T Execute<T>(RestRequest request) where T : new()
         {

@@ -19,5 +19,6 @@ namespace MyShop.Data.Entities
         public bool IsDeleted { get; set; }
         public string DeletedBy { get; set; }
         public DateTime? DeletedDateOnUtc { get; set; }
+        public Wallet Wallet { get; set; }
     }
 }

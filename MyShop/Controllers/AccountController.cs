@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using MyShop.Data.Entities;
+using MyShop.Service.Interfaces;
 using MyShop.Service.Models;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
@@ -22,12 +23,15 @@ namespace MyShop.API.Controllers
         private readonly IConfiguration _config;
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly ICustomerService _customerService;
 
-        public AccountController(IConfiguration config, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        public AccountController(IConfiguration config, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,
+                                 ICustomerService customerService)
         {
             _config = config;
             _userManager = userManager;
             _signInManager = signInManager;
+            _customerService = customerService;
         }
 
         [HttpPost]
@@ -38,7 +42,11 @@ namespace MyShop.API.Controllers
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
-
+                var customer = new Customer
+                {
+                    IdentityId = user.Id
+                };
+                _customerService.AddCustomer(customer, User.Identity.Name);
                 return Ok();
             }
 

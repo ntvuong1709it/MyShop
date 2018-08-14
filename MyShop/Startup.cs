@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -107,8 +108,20 @@ namespace MyShop.API
             });
 
             services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
-            services.AddScoped<ICategoryService, CategoryService>();
+
+            services.Scan(s => s
+                .FromAssemblies(Assembly.Load("MyShop.Service"))
+                .AddClasses(c => c.Where(i => i.Name.EndsWith("Service")))
+                .AsImplementedInterfaces()
+                .WithScopedLifetime()
+            );
+
+            services.Scan(s => s
+                .FromAssemblies(Assembly.Load("MyShop.Repository"))
+                .AddClasses(c => c.Where(i => i.Name.EndsWith("Repository")))
+                .AsImplementedInterfaces()
+                .WithScopedLifetime()
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

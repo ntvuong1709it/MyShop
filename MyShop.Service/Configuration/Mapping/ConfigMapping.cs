@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Blockchain.Models;
 using MyShop.Data.Entities;
 using MyShop.Service.Models;
 
@@ -11,6 +12,7 @@ namespace MyShop.Service.Configuration.Mapping
             Mapper.Initialize(cfg =>
             {
                 MapCategory(cfg);
+                MapWallet(cfg);
             });
             
         }
@@ -18,6 +20,11 @@ namespace MyShop.Service.Configuration.Mapping
         private static void MapCategory(IMapperConfigurationExpression cfg)
         {
             cfg.CreateMap<CategoryAddModel, Category>();
+        }
+
+        private static void MapWallet(IMapperConfigurationExpression cfg)
+        {
+            cfg.CreateMap<WalletResponse, Wallet>();
         }
     }
 }

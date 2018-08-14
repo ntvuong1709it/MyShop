@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Blockchain\Blockchain.csproj" />
     <ProjectReference Include="..\MyShop.Data\MyShop.Data.csproj" />
     <ProjectReference Include="..\MyShop.Repository\MyShop.Repository.csproj" />
   </ItemGroup>

@@ -1,6 +1,10 @@
-﻿using Blockchain;
+﻿using System.Security.Claims;
+using AutoMapper;
+using Blockchain;
 using Blockchain.Models;
 using Microsoft.AspNetCore.Mvc;
+using MyShop.Data.Entities;
+using MyShop.Service.Interfaces;
 
 namespace MyShop.API.Controllers
 {
@@ -9,15 +13,27 @@ namespace MyShop.API.Controllers
     public class BlockchainController : ControllerBase
     {
         private readonly BlockchainClient _blockchainClient;
-        public BlockchainController()
+        private readonly IWalletService _walletService;
+
+        public BlockchainController(IWalletService walletService)
         {
             _blockchainClient = new BlockchainClient();
+            _walletService = walletService;
         }
 
         [HttpPost]
-        public IActionResult CreateNewWallet(WalletRequest wallet)
+        [Route("NewWallet")]
+        public IActionResult CreateNewWallet(WalletRequest walletRequest)
         {
-            var createdWallet = _blockchainClient.CreateNewAddress(wallet);
+            var createdWallet = _blockchainClient.CreateNewAddress(walletRequest);
+
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var wallet = Mapper.Map<Wallet>(createdWallet);
+            wallet.CustomerId = userId;
+
+            _walletService.AddWallet(wallet);
+
             return Ok();
         }
     }

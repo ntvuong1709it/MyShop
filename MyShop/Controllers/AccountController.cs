@@ -61,8 +61,10 @@ namespace MyShop.API.Controllers
             {
                 var result = await AuthenticateAsync(model);
 
-                if (result.Succeeded) 
-                    return Ok(new { access_token = GenerateJwtToken() });
+                if (result.Succeeded)
+                {
+                    return Ok(new { access_token = GenerateJwtToken(), firstName = User.Identity.Name });
+                }
                 if (result.IsLockedOut)
                     return Forbid();
                 else

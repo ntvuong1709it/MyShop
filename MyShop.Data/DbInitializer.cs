@@ -35,14 +35,21 @@ namespace MyShop.Data
             var adminUser = new AppUser
             {
                 Email = "admin@gmail.com",
+                UserName = "admin@gmail.com"
             };
             var managerUser = new AppUser
             {
                 Email = "manager@gmail.com",
+                UserName = "manager@gmail.com"
             };
 
-            userManager.AddToRoleAsync(adminUser, "Admin").Wait();
-            userManager.AddToRoleAsync(managerUser, "Manager").Wait();
+            var createdAdminUser = userManager.CreateAsync(adminUser, "Abcd@123").Result;
+            if(createdAdminUser.Succeeded)
+                userManager.AddToRoleAsync(adminUser, "Admin").Wait();
+
+            var createdManagerUser = userManager.CreateAsync(managerUser, "Abcd@123").Result;
+            if (createdManagerUser.Succeeded)
+                userManager.AddToRoleAsync(managerUser, "Manager").Wait();
         }
     }
 }

@@ -76,14 +76,14 @@
     "tinymce": "4.5.7",
     "typeface-exo": "0.0.22",
     "web-animations-js": "2.2.5",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "@fortawesome/fontawesome-free": "^5.2.0"
   },
   "devDependencies": {
     "@angular/cli": "6.0.0",
     "@angular/compiler-cli": "6.0.0",
     "@angular/language-service": "6.0.0",
     "@compodoc/compodoc": "1.0.1",
-    "@fortawesome/fontawesome-free": "^5.2.0",
     "@types/d3-color": "1.0.5",
     "@types/googlemaps": "3.30.4",
     "@types/jasmine": "2.5.54",

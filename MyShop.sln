@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyShop.Infastructure", "MyS
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClientServices", "ClientServices", "{58A6F440-38E4-41BA-86A6-8D268A022D45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blockchain", "Blockchain\Blockchain.csproj", "{CDFBB81B-F67B-42AB-AC46-2BD33B4D9F81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blockchain", "Blockchain\Blockchain.csproj", "{CDFBB81B-F67B-42AB-AC46-2BD33B4D9F81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

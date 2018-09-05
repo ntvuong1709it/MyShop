@@ -3,13 +3,13 @@ using MyShop.Data.Interfaces;
 
 namespace MyShop.Data.Entities
 {
-    public class Item : IEntity<int>, IAuditEntity, IDeleteEntity
+    public class Order : IEntity<int>, IAuditEntity, IDeleteEntity
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int Quantity { get; set; }
-        public decimal Price { get; set; }
-        public bool Visible { get; set; }
+        public string Number { get; set; }
+        public string Status { get; set; }
+        public string Note { get; set; }
+
         public string CreatedBy { get; set; }
         public DateTime? CreatedDateOnUtc { get; set; }
         public string ModifiedBy { get; set; }
@@ -17,5 +17,7 @@ namespace MyShop.Data.Entities
         public bool IsDeleted { get; set; }
         public string DeletedBy { get; set; }
         public DateTime? DeletedDateOnUtc { get; set; }
+
+        public OrderDetail OrderDetail { get; set; }
     }
 }

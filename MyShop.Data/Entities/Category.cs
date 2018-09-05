@@ -10,6 +10,7 @@ namespace MyShop.Data.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+
         public string CreatedBy { get; set; }
         public DateTime? CreatedDateOnUtc { get; set; }
         public string ModifiedBy { get; set; }
@@ -17,6 +18,7 @@ namespace MyShop.Data.Entities
         public bool IsDeleted { get; set; }
         public string DeletedBy { get; set; }
         public DateTime? DeletedDateOnUtc { get; set; }
-        public ICollection<Item> Items { get; set; }
+
+        public ICollection<ProductCategory> ProductCategories { get; set; }
     }
 }

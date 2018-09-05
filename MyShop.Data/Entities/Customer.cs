@@ -11,6 +11,14 @@ namespace MyShop.Data.Entities
         public AppUser Identity { get; set; }
         public Gender Gender { get; set; }
         public string Address { get; set; }
+        public string District { get; set; }
+        public string Ward { get; set; }
+        public string City { get; set; }
+        public string ShippingAddress { get; set; }
+        public string ShippingDistrict { get; set; }
+        public string ShippingWard { get; set; }
+        public string ShippingCity { get; set; }
+
 
         public string CreatedBy { get; set; }
         public DateTime? CreatedDateOnUtc { get; set; }

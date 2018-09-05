@@ -13,6 +13,7 @@ namespace MyShop.Service.Configuration.Mapping
             {
                 MapCategory(cfg);
                 MapWallet(cfg);
+                MapProduct(cfg);
             });
             
         }
@@ -20,6 +21,11 @@ namespace MyShop.Service.Configuration.Mapping
         private static void MapCategory(IMapperConfigurationExpression cfg)
         {
             cfg.CreateMap<CategoryAddModel, Category>();
+        }
+
+        private static void MapProduct(IMapperConfigurationExpression cfg)
+        {
+            cfg.CreateMap<NewProductModel, Product>();
         }
 
         private static void MapWallet(IMapperConfigurationExpression cfg)

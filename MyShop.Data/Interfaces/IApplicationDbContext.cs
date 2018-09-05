@@ -11,6 +11,8 @@ namespace MyShop.Data.Interfaces
         int SaveChanges();
         DbSet<T> Set<T>() where T:class;
         DbSet<Category> Categories { get; set; }
-        DbSet<Item> Items { get; set; }
+        DbSet<Product> Products { get; set; }
+        DbSet<Order> Orders { get; set; }
+        DbSet<OrderDetail> OrderDetails { get; set; }
     }
 }

@@ -9,7 +9,9 @@ namespace MyShop.Data
     {
         public static void Initialize(ApplicationDbContext context)
         {
-            
+            context.Database.EnsureCreated();
+
+            // Add seed data and save changes
         }
 
         public static void CreateUserRoles(IServiceProvider serviceProvider)

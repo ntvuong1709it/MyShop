@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyShop.Data;
 
 namespace MyShop.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180905034141_UpdateModel")]
+    partial class UpdateModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -320,15 +322,15 @@ namespace MyShop.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<float?>("AverageRating");
+                    b.Property<float>("AverageRating");
 
                     b.Property<string>("CreatedBy");
 
                     b.Property<DateTime?>("CreatedDateOnUtc");
 
-                    b.Property<DateTime?>("DateSaleFromUtc");
+                    b.Property<DateTime>("DateSaleFromUtc");
 
-                    b.Property<DateTime?>("DateSaleToUtc");
+                    b.Property<DateTime>("DateSaleToUtc");
 
                     b.Property<string>("DeletedBy");
 
@@ -351,9 +353,9 @@ namespace MyShop.Data.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("RatingCount");
+                    b.Property<float>("RatingCount");
 
-                    b.Property<decimal?>("SalePrice")
+                    b.Property<decimal>("SalePrice")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Sku");
@@ -364,7 +366,7 @@ namespace MyShop.Data.Migrations
 
                     b.Property<int>("StockQuantity");
 
-                    b.Property<int?>("TotalSale");
+                    b.Property<int>("TotalSale");
 
                     b.Property<string>("Weight");
 
